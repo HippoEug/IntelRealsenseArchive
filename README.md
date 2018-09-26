@@ -13,7 +13,7 @@
 10. Refresh CPP Project 
 
 
-#If "fopen" error warning occurs, do the following to fix compiler:
+## If "fopen" error warning occurs, do the following to fix compiler:
 1. Select Project and click "Properties" from the context menu
 2. Go to Configuration Properties > C/C++ > Preprocessor
 3. Add ;_CRT_SECURE_NO_WARNINGS in the ProprocessorDefinitions field

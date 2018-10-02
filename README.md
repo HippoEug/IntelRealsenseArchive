@@ -28,6 +28,7 @@
 ## Realsense GitHub Useful and Relevant Issues
 - https://github.com/IntelRealSense/librealsense/issues/2200 (How to get the depth value of a specific coordinate through the stored depth picture)
 - https://github.com/IntelRealSense/librealsense/issues/2348 (How to get real distance from 16-bit value in depth image)
+- https://github.com/IntelRealSense/librealsense/issues/2229 (Changing disparity shift in c++)
 
 ## StackOverflow PointCloud and Volume Questions
 - https://stackoverflow.com/questions/41267210/point-cloud-xyz-format-specification

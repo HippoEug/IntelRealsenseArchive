@@ -37,3 +37,26 @@
 ## External Wrapper Libraries
 - https://github.com/glfw/glfw
 - https://github.com/ocornut/imgui
+
+## CMake Guide for Intel Realsense D435
+
+1. Save librealsense-2.16.1 on **desktop**
+2. On CMake, place the directory as ../Desktop/librealsense-2.16.1 as seen in the attached picture. 
+![image](https://user-images.githubusercontent.com/21957042/46134155-d1ffd780-c274-11e8-8807-8b0fc5b6f02a.png)
+
+3. Configuration:
+
+![image](https://user-images.githubusercontent.com/21957042/46134460-81d54500-c275-11e8-91fc-72732a6c78e7.png)
+
+_- clicked on Yes_
+
+![image](https://user-images.githubusercontent.com/21957042/46134522-a7fae500-c275-11e8-9ed0-3125c4f489b5.png)
+
+_- leave everything on default and click Finish_
+
+![image](https://user-images.githubusercontent.com/21957042/46134627-f27c6180-c275-11e8-898d-9c5c11acf89f.png)
+_- Performing Test COMPILER_SUPPORTS_CXX0X - Failed_ however... the [log](https://hastebin.com/cafamipata.sql) is here if it helps in any way. Clicked on Generate afterwards.
+
+
+4. Now I have the CMake generated files on C:\Users\efoo1\Desktop\librealsense-2.16.1\build
+![image](https://user-images.githubusercontent.com/21957042/46134824-60288d80-c276-11e8-999e-99a388eeadc0.png)

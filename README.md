@@ -17,6 +17,10 @@
 2. Go to Configuration Properties > C/C++ > Preprocessor
 3. Add ;_CRT_SECURE_NO_WARNINGS in the ProprocessorDefinitions field
 
+#### Sources: 
+- https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_windows.md (CMake Windows Installation)
+- https://communities.intel.com/message/548179#548179 (First contact with D415, What should I do)
+
 ## CMake Guide for Intel Realsense D435
 
 1. Save librealsense-2.16.1 on **desktop**
@@ -25,10 +29,6 @@
     - Where is the source code: C:/Users/efoo1/Desktop/librealsense-2.16.1
     - Where to build the binaries: C:/Users/efoo1/Desktop/librealsense-2.16.1/build
 4. Now the CMake generated files is present on C:\Users\efoo1\Desktop\librealsense-2.16.1\build
-
-#### Sources: 
-- https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_windows.md (CMake Windows Installation)
-- https://communities.intel.com/message/548179#548179 (First contact with D415, What should I do)
 
 ## OpenCV Wrappers for Realsense
 - https://github.com/IntelRealSense/librealsense/tree/master/wrappers/opencv [GitHub Page]

@@ -156,7 +156,7 @@ void getDistance() {
 	//float height = depth.get_height();
 	//float dist_to_center = depth.get_distance(width / 2, height / 2);
 
-	rs2::frameset frames = pipe.wait_for_frames();
-	rs2::depth_frame depth = frames.get_depth_frame();
+	rs2::frameset frames = pipe.wait_for_frames(); // Wait for next set of frames from the camera
+	rs2::depth_frame depth = frames.get_depth_frame(); 
 	std::cout << depth.get_distance(640, 360) << std::endl; // For center of camera
 }

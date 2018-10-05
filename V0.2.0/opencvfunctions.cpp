@@ -28,7 +28,7 @@ static void onMouse(int event, int x, int y, int, void* imgptr) {
 	Mat& img = (*(Mat*)imgptr); // cast first and dereference
 	Point pt1 = Point(x, y);
 
-	circle(img, pt1, 1, Scalar(0, 255, 0), 30, 8, 0); //RGB 0 255 0 = GREEN
+	circle(img, pt1, 1, Scalar(0, 255, 0), 30, 8, 0); //RGB
 
 	std::cout << "X: " << x << " Y: " << y << std::endl;
 

@@ -12,6 +12,14 @@
 9. Create new CPP File (Name: Source.CPP)
 10. Refresh CPP Project
 
+#### Adding OpenCV Library
+1. Verify Visual Studio toolbar has Solution Configurations set to "Debug", and Solution Platforms to "x64"
+NOTE: New versions of OpenCV only supports x64 binaries
+2. Project > Properties (Active(Debug)) > Configuration Properties > VC++ Directories > Include Directories > Add > C:\OpenCV-3.4.3\opencv\build\include
+3. Project > Properties (Active(Debug)) > Configuration Properties > VC++ Directories > Library Directories > Add > C:\OpenCV-3.4.3\opencv\build\x64\vc15\lib
+4. Open Windows File Explorer > C:\OpenCV-3.4.3\opencv\build\x64\vc15\lib > Copy the filename "opencv_world343d.lib"
+5. Visual Studio > Project > Properties > Configuration Properties > Linker > Input > Additional Dependencies > Edit > opencv_world343d.lib
+
 #### If "fopen" error warning occurs, do the following to fix compiler:
 1. Select Project and click "Properties" from the context menu
 2. Go to Configuration Properties > C/C++ > Preprocessor

@@ -25,6 +25,9 @@ NOTE: New versions of OpenCV only supports x64 binaries
 2. Go to Configuration Properties > C/C++ > Preprocessor
 3. Add ;_CRT_SECURE_NO_WARNINGS in the ProprocessorDefinitions field
 
+#### TO-READ
+- https://github.com/IntelRealSense/librealsense/wiki/Projection-in-RealSense-SDK-2.0
+
 #### Sources: 
 - https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_windows.md (CMake Windows Installation)
 - https://communities.intel.com/message/548179#548179 (First contact with D415, What should I do)

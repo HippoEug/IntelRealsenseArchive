@@ -38,15 +38,15 @@ void terminateChoice(int& choice) {
 }
 
 void preview2D(int& choice) {
-	texture depth_image, color_image; // Declare two different textures on GPU
-	rs2::colorizer color_map; // Declare depth colorizer for visualization of depth data
-	rs2::pipeline pipe; // Declare Realsense Pipeline, encapsulating actual device and sensors
+	texture depth_image, color_image; // Declare two different textures on GPU for image rendering
+	rs2::colorizer color_map; // Declare depth colorizer for visualization of depth data, helper to colorize depth images
+	rs2::pipeline pipe; // Declare Realsense Pipeline, encapsulating actual device and sensors, no parameters will start default stream
 
 	pipe.start(); // Start pipeline for streaming with default config
 	window app(1280, 600, "Preview 2D"); // Create OpenGL rendering window
 
 	while (app && (choice != 00)) { // While application still alive
-		rs2::frameset data = pipe.wait_for_frames(); // Wait for next set of frames from the camera
+		rs2::frameset data = pipe.wait_for_frames(); // Block application until a frameset is available
 
 		rs2::frame depth = color_map(data.get_depth_frame()); // Find and colorize the depth data
 		rs2::frame color = data.get_color_frame(); // Find the color data

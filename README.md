@@ -26,6 +26,7 @@ NOTE: New versions of OpenCV only supports x64 binaries
 3. Add ;_CRT_SECURE_NO_WARNINGS in the ProprocessorDefinitions field
 
 #### TO-READ
+- Getting points from .bag file: https://communities.intel.com/thread/128530
 - https://github.com/IntelRealSense/librealsense/wiki/Projection-in-RealSense-SDK-2.0
 - Open3D Library
     - https://github.com/IntelVCL/Open3D

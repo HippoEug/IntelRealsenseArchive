@@ -27,6 +27,10 @@ NOTE: New versions of OpenCV only supports x64 binaries
 
 #### TO-READ
 - https://github.com/IntelRealSense/librealsense/wiki/Projection-in-RealSense-SDK-2.0
+- Open3D Library
+    - https://github.com/IntelVCL/Open3D
+    - https://github.com/IntelRealSense/librealsense/issues/2463
+    - https://github.com/IntelVCL/Open3D/issues/231
 
 #### Sources: 
 - https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_windows.md (CMake Windows Installation)

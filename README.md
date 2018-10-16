@@ -22,6 +22,7 @@
   - imstb_rectpack.h
   - imstb_textedit.h
   - imstb_truetype.h
+NOTE: Copy the above files from Realsense\third-party\imgui instead of the official imgui release
 8. Properties > VC++ > Include Directories > C:\Users\efoo1\Desktop\glfw-3.2.1.bin.WIN32\include
 9. Properties > VC++ > Library Directories > C:\Users\efoo1\Desktop\glfw-3.2.1.bin.WIN32\lib-vc2015
 10. Linker > Input > Additional Dependencies > glfw3.lib + opengl32.lib

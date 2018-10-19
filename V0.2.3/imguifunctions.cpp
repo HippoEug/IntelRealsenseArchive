@@ -3,7 +3,14 @@
 #include "imguifunctions.hpp"
 
 void menuGUIx(bool& show_color_camera, bool& show_depth_camera, bool& button_pressed) {
-	ImGui::Begin("Menu");
+	static const int flags = ImGuiWindowFlags_NoCollapse
+		| ImGuiWindowFlags_NoScrollbar
+		| ImGuiWindowFlags_NoSavedSettings
+		| ImGuiWindowFlags_NoTitleBar
+		| ImGuiWindowFlags_NoResize
+		| ImGuiWindowFlags_NoMove;
+
+	ImGui::Begin("Menu", nullptr, flags);
 
 	ImGui::Separator();
 	ImGui::Text("STREAM");

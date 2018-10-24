@@ -2,39 +2,51 @@
 
 #include "imguifunctions.hpp"
 
-void menuGUI(bool& show_color_camera, bool& show_depth_camera, bool& show_app_log, bool& button_pressed) {
-	ImGui::Begin("Menu");                          // Create a window called "Hello, world!" and append into it.
+void menuGUI(bool& show_color_camera, bool& show_depth_camera, bool& camera_button, bool& coordinates_button, bool& CSV_button) {
+	static const int flags = ImGuiWindowFlags_NoCollapse
+	| ImGuiWindowFlags_NoScrollbar
+	| ImGuiWindowFlags_NoSavedSettings
+	| ImGuiWindowFlags_NoTitleBar
+	| ImGuiWindowFlags_NoResize
+	| ImGuiWindowFlags_NoMove;
+
+	ImGui::Begin("Menu", nullptr, flags);
+
 	ImGui::Separator();
-	ImGui::Text("STREAM");               // Display some text (you can use a format strings too)
+	ImGui::Text("-------STREAM-------");
 	ImGui::Separator();
-	ImGui::Checkbox("Preview Color Camera", &show_color_camera);      // Edit bools storing our window open/close state
+	ImGui::Checkbox("Preview Color Camera", &show_color_camera);
 	ImGui::Checkbox("Preview Depth Camera", &show_depth_camera);
-	ImGui::Checkbox("Show Application Log", &show_app_log);
 
-	//ImGui::SliderFloat("Disparity Value", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f    
-	//ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-
-	if (ImGui::Button("Capture")) {                           // Buttons return true when clicked (most widgets return true when edited/activated)
-		button_pressed = true;
+	ImGui::Separator();
+	ImGui::Text("--------SAVE--------");
+	ImGui::Separator();
+	if (ImGui::Button("Capture Image", { 150, 25 })) {
+		camera_button = true;
 	}
 
-	//ImGui::Text("counter = %d", counter);
 	ImGui::Separator();
-	ImGui::Text("SAVE");
+	ImGui::Text("---MSC' FUNCTIONS---");
 	ImGui::Separator();
-	ImGui::Text("MSC' FUNCTIONS");
-	ImGui::Separator();
+	if (ImGui::Button("Select Coordinates", { 150, 25 })) {
+		coordinates_button = true;
+	}
 
-	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	if (ImGui::Button("Save XYZ Coordinates", { 150, 25 })) {
+		CSV_button = true;
+	}
+	//ImGui::Checkbox("ROSBAG", &CSV_button);
+
+	ImGui::Separator();
+	ImGui::Text("Frame Rate: %.1f FPS", ImGui::GetIO().Framerate);
+	ImGui::Separator();
+	ImGui::Text("Copyright 2018, HippoEug. All Rights Reserved");
 	ImGui::End();
 	ImGui::Render();
 }
 
-void menuGuiTest() {
-	ImGui::Begin("Menu");
-	ImGui::Separator();
-	ImGui::Text("STREAM");               // Display some text (you can use a format strings too)
-	ImGui::Separator();
-	ImGui::End();
-	ImGui::Render();
+void rosbagGUI() {
+	//ImGui::Begin("Wtf");
+	//ImGui::End();
+	//ImGui::Render();
 }

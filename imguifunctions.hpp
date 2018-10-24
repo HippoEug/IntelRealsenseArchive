@@ -2,8 +2,8 @@
 
 #include "imgui\imgui.h"
 
-void menuGUI(bool& show_color_camera, bool& show_depth_camera, bool& show_app_log, bool& button_pressed);
-void menuGuiTest();
+void menuGUI(bool& show_color_camera, bool& show_depth_camera, bool& camera_button, bool& coordinates_button, bool& CSV_button);
+void rosbagGUI();
 
 struct AppLog {
 	ImGuiTextBuffer Buf;
@@ -20,7 +20,7 @@ struct AppLog {
 		int old_size = Buf.size();
 		va_list args;
 		va_start(args, fmt);
-		Buf.appendv(fmt, args); // modified from appendfv
+		Buf.appendv(fmt, args); // modified from appendfv : error here porobably
 		va_end(args);
 
 		for (int new_size = Buf.size(); old_size < new_size; old_size++) {
@@ -68,7 +68,7 @@ struct AppLog {
 		}
 
 		//if (ScrollToBottom) {
-			//ImGui::SetScrollHere(1.0f); // Original SetScrollHereY
+		//ImGui::SetScrollHere(1.0f); // Original SetScrollHereY
 		//}
 		//ScrollToBottom = false;
 		ImGui::EndChild();

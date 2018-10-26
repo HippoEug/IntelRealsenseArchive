@@ -235,18 +235,25 @@ public:
 		_width = width;
 		_height = height;
 
+		// Initialize the library
 		if (!glfwInit()) {
 			throw std::runtime_error("GLFW INIT FAILED");
 			return;
 		}
-		glfwWindowHint(GLFW_RESIZABLE, GL_FALSE); // Prevent window from resizing by user
+
+		// Create a windowed mode window and the OpenGL context
+		glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Prevent window from resizing by user
 		win = glfwCreateWindow(width, height, title, nullptr, nullptr);
+		// Create a full screen window, no border or decorations
+		// win = glfwCreateWindow(width, height, title, glfwGetPrimaryMonitor(), NULL);
+
 		if (!win) {
+			glfwTerminate();
 			throw std::runtime_error("Could not open OpenGL window, please check your graphic drivers or use the textual SDK tools");
 		}
-		glfwMakeContextCurrent(win);
 
-		glfwSetWindowUserPointer(win, this);
+		glfwMakeContextCurrent(win); // Make the window's context current
+		glfwSetWindowUserPointer(win, this); // Sets user-defined pointer of the specified window
 		glfwSetMouseButtonCallback(win, [](GLFWwindow * win, int button, int action, int mods)
 		{
 			auto s = (window_rs*)glfwGetWindowUserPointer(win);
@@ -285,15 +292,20 @@ public:
 
 	operator bool() {
 		glPopMatrix();
-		glfwSwapBuffers(win);
+		// GLFW windows are double buffered by default, a front buffer and a back buffer
+		// Front buffer is the one being displayed, while the back buffer is the one being rendered
+		// When the entire frame has been rendered, it is time to swap the back and the front buffers,
+		// in order to display what has been rendered and begin rendering a new frame
+		glfwSwapBuffers(win); // Swap front and back buffers
+		glfwSwapInterval(1); // Avoid screen tearing, FPS Limit: 60
 
 		auto res = !glfwWindowShouldClose(win);
 
-		glfwPollEvents();
-		glfwGetFramebufferSize(win, &_width, &_height);
+		glfwPollEvents(); // Poll for and process events
+		glfwGetFramebufferSize(win, &_width, &_height); // For directly retrieving the current size of the framebuffer of aindow
 
 		// Clear the framebuffer
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT); // Render here
 		glViewport(0, 0, _width, _height);
 
 		// Draw the images
@@ -305,8 +317,8 @@ public:
 	}
 
 	~window_rs() {
-		glfwDestroyWindow(win);
-		glfwTerminate();
+		glfwDestroyWindow(win); // Window destroyed when no longer needed
+		glfwTerminate(); // Destroy all remaining windows
 	}
 
 	operator GLFWwindow*() { 

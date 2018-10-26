@@ -22,8 +22,7 @@ struct rect_rs {
 	float w, h;
 
 	// Create new rect within original boundaries with give aspect ration
-	rect_rs adjust_ratio(float2_rs size) const
-	{
+	rect_rs adjust_ratio(float2_rs size) const {
 		auto H = static_cast<float>(h), W = static_cast<float>(h) * size.x / size.y;
 		if (W > w) {
 			auto scale = w / W;
@@ -176,11 +175,21 @@ private:
 		}
 
 		while (w*h > streams) {
-			h > w ? h-- : w--;
+			if (h > w) {
+				h--;
+			}
+			else {
+				w--;
+			}
 		}
 
 		while (w*h < streams) {
-			h > w ? w++ : h++;
+			if (h > w) {
+				w++;
+			}
+			else {
+				h++;
+			}
 		}
 
 		auto new_w = round(window.x / w);

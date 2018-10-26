@@ -254,29 +254,25 @@ public:
 
 		glfwMakeContextCurrent(win); // Make the window's context current
 		glfwSetWindowUserPointer(win, this); // Sets user-defined pointer of the specified window
-		glfwSetMouseButtonCallback(win, [](GLFWwindow * win, int button, int action, int mods)
-		{
+
+		glfwSetMouseButtonCallback(win, [](GLFWwindow * win, int button, int action, int mods) { // Notify when a mouse button is pressed or released
 			auto s = (window_rs*)glfwGetWindowUserPointer(win);
 			if (button == 0) s->on_left_mouse(action == GLFW_PRESS);
 		});
 
-		glfwSetScrollCallback(win, [](GLFWwindow * win, double xoffset, double yoffset)
-		{
+		glfwSetScrollCallback(win, [](GLFWwindow * win, double xoffset, double yoffset) { // Notify when user scrolls, with mouse wheel or touchpad gesture
 			auto s = (window_rs*)glfwGetWindowUserPointer(win);
 			s->on_mouse_scroll(xoffset, yoffset);
 		});
 
-		glfwSetCursorPosCallback(win, [](GLFWwindow * win, double x, double y)
-		{
+		glfwSetCursorPosCallback(win, [](GLFWwindow * win, double x, double y) { // Notify when cursor is moved over the window
 			auto s = (window_rs*)glfwGetWindowUserPointer(win);
 			s->on_mouse_move(x, y);
 		});
 
-		glfwSetKeyCallback(win, [](GLFWwindow * win, int key, int scancode, int action, int mods)
-		{
+		glfwSetKeyCallback(win, [](GLFWwindow * win, int key, int scancode, int action, int mods) { // Notify when a physical key is pressed, released, or repeated
 			auto s = (window_rs*)glfwGetWindowUserPointer(win);
-			if (0 == action) // on key release
-			{
+			if (0 == action) { // on key release
 				s->on_key_release(key);
 			}
 		});
@@ -297,10 +293,12 @@ public:
 		// When the entire frame has been rendered, it is time to swap the back and the front buffers,
 		// in order to display what has been rendered and begin rendering a new frame
 		glfwSwapBuffers(win); // Swap front and back buffers
-		glfwSwapInterval(1); // Avoid screen tearing, FPS Limit: 60
+		glfwSwapInterval(1); // VSync, FPS Limit: 60
 
 		auto res = !glfwWindowShouldClose(win);
 
+		// Event Processing: GLFW needs to communicate with the system to receive events and show the application has not locked up
+		// glfwPollEvents processes only those events that have already been received and then returns immediately
 		glfwPollEvents(); // Poll for and process events
 		glfwGetFramebufferSize(win, &_width, &_height); // For directly retrieving the current size of the framebuffer of aindow
 
@@ -318,7 +316,7 @@ public:
 
 	~window_rs() {
 		glfwDestroyWindow(win); // Window destroyed when no longer needed
-		glfwTerminate(); // Destroy all remaining windows
+		glfwTerminate(); // Terminates te GLFW library, destroying any remaining window, monitor or objects etc
 	}
 
 	operator GLFWwindow*() { 

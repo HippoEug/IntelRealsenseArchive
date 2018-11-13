@@ -1,2 +1,2 @@
-- Added compatability fix for 2.16.3 (pre-release)
+- Fixed color_map bug
 - Added Hole Filling filters

@@ -1,0 +1,2 @@
+- Added compatability fix for 2.16.3 (pre-release)
+- Added Hole Filling filters

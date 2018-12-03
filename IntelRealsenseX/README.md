@@ -33,7 +33,7 @@ NOTE: New versions of OpenCV only supports x64 binaries
     - https://github.com/IntelRealSense/librealsense/issues/2463
     - https://github.com/IntelVCL/Open3D/issues/231
 
-#### Sources: 
+#### Source: 
 - https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_windows.md (CMake Windows Installation)
 - https://communities.intel.com/message/548179#548179 (First contact with D415, What should I do)
 

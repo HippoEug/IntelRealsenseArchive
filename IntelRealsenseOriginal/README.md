@@ -12,7 +12,7 @@
 9. Create new CPP File (Name: Source.CPP)
 10. Refresh CPP Project
 
-#### Sources: 
+#### Source: 
 - https://github.com/IntelRealSense/librealsense/blob/master/doc/installation_windows.md (CMake Windows Installation)
 - https://communities.intel.com/message/548179#548179 (First contact with D415, What should I do)
 

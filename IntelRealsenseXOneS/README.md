@@ -8,7 +8,6 @@
 5. Add intel.realsense.props, now #include <librealsense2/rs.h> can be used
 6. Copy folder [realsense] into Project's File Explorer
 7. Copy folder [imgui] into Project's File Explorer
-NOTE: Copy the above files from Realsense\third-party\imgui instead of the official imgui release
 8. Properties > VC++ > Include Directories > C:\Users\efoo1\Desktop\glfw-3.2.1.bin.WIN32\include
 NOTE: 64bit: C:\Users\efoo1\Desktop\glfw-3.2.1.bin.WIN64\include
 9. Properties > VC++ > Library Directories > C:\Users\efoo1\Desktop\glfw-3.2.1.bin.WIN32\lib-vc2015

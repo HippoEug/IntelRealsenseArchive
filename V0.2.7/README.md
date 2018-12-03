@@ -1,2 +1,0 @@
-- Fixed color_map bug
-- Added Hole Filling filters
